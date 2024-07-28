@@ -1,17 +1,29 @@
-import { defineStyle, Input, VStack } from '@chakra-ui/react';
+import { BoxProps, defineStyle, VStack } from '@chakra-ui/react';
+import { SearchInput } from './SearchInput';
+import { WeatherImage } from './WeatherImage';
+import { TemperatureInfo } from './TemperatureInfo';
+import { InfoBlock } from './InfoBlock';
 
 const containerStyles = defineStyle({
-  maxW: '30%',
-  borderRadius: '12px',
-  border: '1px solid',
-  borderColor: 'grey',
-});
+  w: '30%',
+  minW: { base: '250px', sm: '350px' },
+  px: { base: '14px', sm: '20px' },
+  py: { base: '20px', sm: '30px' },
+  borderRadius: '16px',
+  border: '2px solid',
+  borderColor: 'borderColor',
+  backgroundColor: 'weatherBlockBgColor',
+  backdropFilter: 'blur(30px)',
+  as: 'section',
+}) as BoxProps;
 
 export const WeatherBlock = () => {
   return (
     <VStack {...containerStyles}>
-      <Input />
-      sdfgsdfg
+      <SearchInput />
+      <WeatherImage status="sunny" />
+      <TemperatureInfo temperature="16" />
+      <InfoBlock />
     </VStack>
   );
 };

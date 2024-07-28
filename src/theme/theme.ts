@@ -12,6 +12,8 @@ export const theme = extendTheme({
       },
       body: {
         minH: '100vh',
+        fontFamily: '"Ubuntu", sans-serif',
+        fontWeight: 400,
       },
     },
   },
