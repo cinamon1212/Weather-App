@@ -1,8 +1,9 @@
 import { BoxProps, defineStyle, VStack } from '@chakra-ui/react';
 import { SearchInput } from './SearchInput';
-import { WeatherImage } from './WeatherImage';
-import { TemperatureInfo } from './TemperatureInfo';
-import { InfoBlock } from './InfoBlock';
+import { useState } from 'react';
+import { WeatherFallback } from './WeatherFallback';
+import { WeatherContent } from './WeatherContent';
+import { CityData } from '@/types';
 
 const containerStyles = defineStyle({
   w: '30%',
@@ -18,12 +19,31 @@ const containerStyles = defineStyle({
 }) as BoxProps;
 
 export const WeatherBlock = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [cityData, setCityData] = useState<CityData>({
+    humidity: 0,
+    name: 'Broken Clouds',
+    status: 'Clouds',
+    temp: 0,
+    wind: 0,
+  });
+
   return (
     <VStack {...containerStyles}>
-      <SearchInput />
-      <WeatherImage status="sunny" />
-      <TemperatureInfo temperature="16" />
-      <InfoBlock />
+      <SearchInput
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        setCityData={setCityData}
+        setIsLoading={setIsLoading}
+        setIsError={setIsError}
+      />
+      {isError ? (
+        <WeatherFallback />
+      ) : (
+        <WeatherContent cityData={cityData} isLoading={isLoading} />
+      )}
     </VStack>
   );
 };

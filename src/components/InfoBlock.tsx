@@ -11,26 +11,30 @@ const stackStyles = defineStyle({
   px: '10px',
 });
 
-const fields = [
-  {
-    iconName: 'humidity',
-    label: 'Humidity',
-    value: '0 %',
-    justifyContent: { base: 'center', sm: 'flex-start' },
-  },
-  {
-    iconName: 'wind',
-    label: 'Wind speed',
-    value: '0 Km/h',
-    justifyContent: { base: 'center', sm: 'flex-end' },
-  },
-];
+type Props = {
+  humidity: number;
+  wind: number;
+};
 
-export const InfoBlock = () => {
+export const InfoBlock = ({ humidity, wind }: Props) => {
+  const fields = [
+    {
+      iconName: 'humidity',
+      label: 'Humidity',
+      value: `${humidity} %`,
+      justifyContent: { base: 'center', sm: 'flex-start' },
+    },
+    {
+      iconName: 'wind',
+      label: 'Wind speed',
+      value: `${wind} Km/h`,
+      justifyContent: { base: 'center', sm: 'flex-end' },
+    },
+  ];
   return (
     <Stack {...stackStyles}>
       {fields.map((field) => (
-        <InfoField {...field} />
+        <InfoField {...field} key={field.iconName} />
       ))}
     </Stack>
   );

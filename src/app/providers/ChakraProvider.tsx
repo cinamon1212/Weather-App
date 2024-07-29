@@ -1,4 +1,4 @@
-import { theme } from '@/theme/theme';
+import { theme } from '@/theme';
 import { ChakraProvider as ChakraUIProvider } from '@chakra-ui/react';
 import { PropsWithChildren } from 'react';
 

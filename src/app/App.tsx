@@ -1,5 +1,5 @@
-import { WeatherBlock } from '@/components/WeatherBlock';
-import { Layout } from './layout/Layout';
+import { WeatherBlock } from '@/components';
+import { Layout } from './layout';
 
 export const App = () => {
   return (
