@@ -1,10 +1,11 @@
 import { ErrorStatus, ThemeType } from '@/shared'
-import { defineStyle, Image, Text, VStack } from '@chakra-ui/react'
+import { BoxProps, defineStyle, Image, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react'
 
 const containerStyles = defineStyle({
   alignItems: 'center',
-})
+  textAlign: 'center',
+}) as BoxProps
 
 type Props = {
   error: ErrorStatus

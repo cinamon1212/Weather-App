@@ -1,7 +1,5 @@
 react memo
-chakra ui container | main | layout
 сделать изначальное отображение только инпут
-обернуть все в container с overflow:hidden чтобы не прописывать везде марджины
 
 залить на гитхаб и задеплоить
 
