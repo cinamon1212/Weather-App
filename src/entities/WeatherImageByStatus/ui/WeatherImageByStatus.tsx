@@ -20,7 +20,7 @@ export const WeatherImageByStatus = ({ status }: Props) => {
     <Image
       {...imgStyles}
       src={imgSrc}
-      alt="weather"
+      alt='weather'
       animation={animations.imgAnimation}
     />
   )

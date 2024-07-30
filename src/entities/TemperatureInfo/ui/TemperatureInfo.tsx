@@ -14,7 +14,7 @@ const tempHStyles = defineStyle({
 
 export const TemperatureInfo = ({ temperature, cityName }: Props) => {
   return (
-    <VStack gap={0} mt="10px">
+    <VStack gap={0} mt='10px'>
       <HStack {...tempHStyles} as={'h2'}>
         <Text as={'span'}>{temperature}</Text>
         <Text as={'span'} alignSelf={'flex-start'} fontSize={'22px'}>

@@ -20,16 +20,15 @@ export const ErrorFallback = ({ error }: Props) => {
   return (
     <VStack {...containerStyles}>
       <Image
-        src="/images/404.png"
-        alt="not found"
+        src='/images/404.png'
+        alt='not found'
         animation={animations.imgAnimation}
       />
       <Text
         as={'h2'}
         fontWeight={500}
         fontSize={{ base: '16px', sm: '20px' }}
-        mt={'10px'}
-      >
+        mt={'10px'}>
         Oops! {errorMessage}
       </Text>
     </VStack>

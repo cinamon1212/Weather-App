@@ -32,8 +32,7 @@ export const WeatherParam = ({ iconName, label, value, ...props }: Props) => {
           as={'h3'}
           alignSelf={'flex-start'}
           fontWeight={500}
-          fontSize={{ base: '18px', sm: '22px' }}
-        >
+          fontSize={{ base: '18px', sm: '22px' }}>
           {value}
         </Text>
         <Text fontSize={{ base: '12px', sm: '14px' }}>{label}</Text>

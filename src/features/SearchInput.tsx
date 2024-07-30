@@ -63,8 +63,7 @@ export const SearchInput = ({
         onClick={() => {
           void handleGetCityData()
         }}
-        h={'100%'}
-      >
+        h={'100%'}>
         <SearchIcon boxSize={{ base: '14px', sm: '16px' }} />
       </InputLeftElement>
       <Input
@@ -78,8 +77,7 @@ export const SearchInput = ({
       <InputRightElement
         onClick={() => setInputValue('')}
         cursor={'pointer'}
-        h={'100%'}
-      >
+        h={'100%'}>
         <CloseIcon boxSize={{ base: '12px', sm: '14px' }} />
       </InputRightElement>
     </InputGroup>
