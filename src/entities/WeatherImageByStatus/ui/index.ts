@@ -1,1 +1,1 @@
-export { WeatherImageByStatus } from './WeatherImageByStatus';
+export { WeatherImageByStatus } from './WeatherImageByStatus'

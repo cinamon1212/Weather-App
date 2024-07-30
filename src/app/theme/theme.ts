@@ -1,8 +1,8 @@
-import { extendTheme } from '@chakra-ui/react';
-import { config } from './config';
-import { colors } from './colors';
-import { animations } from './animations';
-import { ITheme, StylesType } from '@/shared';
+import { extendTheme } from '@chakra-ui/react'
+import { config } from './config'
+import { colors } from './colors'
+import { animations } from './animations'
+import { StylesType, ThemeType } from '@/shared'
 
 const styles: StylesType = {
   global: {
@@ -15,11 +15,11 @@ const styles: StylesType = {
       fontWeight: 400,
     },
   },
-};
+}
 
 export const theme = extendTheme({
   config,
   colors,
   styles,
   animations,
-}) as ITheme;
+}) as ThemeType

@@ -1,2 +1,2 @@
-export * from './cityDataTypes';
-export * from './themeTypes';
+export * from './cityDataTypes'
+export * from './themeTypes'

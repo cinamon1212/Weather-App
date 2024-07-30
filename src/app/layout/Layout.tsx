@@ -1,5 +1,5 @@
-import { BoxProps, defineStyle, VStack } from '@chakra-ui/react';
-import { PropsWithChildren } from 'react';
+import { BoxProps, defineStyle, VStack } from '@chakra-ui/react'
+import { PropsWithChildren } from 'react'
 
 const stackStyles = defineStyle({
   backgroundImage: '/images/background.jpg',
@@ -10,8 +10,8 @@ const stackStyles = defineStyle({
   backgroundPosition: 'center',
   alignItems: 'center',
   justifyContent: 'center',
-}) as BoxProps;
+}) as BoxProps
 
 export const Layout = ({ children }: PropsWithChildren) => {
-  return <VStack {...stackStyles}>{children}</VStack>;
-};
+  return <VStack {...stackStyles}>{children}</VStack>
+}

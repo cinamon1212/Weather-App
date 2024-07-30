@@ -1,1 +1,1 @@
-export { TemperatureInfo } from './ui';
+export { TemperatureInfo } from './ui'

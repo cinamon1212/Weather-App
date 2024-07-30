@@ -1,5 +1,5 @@
-import { CityData, getCityData } from '@/shared';
-import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
+import { CityData, ErrorStatus, getCityData } from '@/shared'
+import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 import {
   defineStyle,
   Input,
@@ -7,12 +7,12 @@ import {
   InputLeftElement,
   InputProps,
   InputRightElement,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
 
 const inputStyles = defineStyle({
   borderWidth: '1.5px',
   borderRadius: '12px',
-  placeholder: 'Enter City Name',
+  placeholder: 'Enter Location',
   color: 'white',
   pb: '1px',
   type: 'text',
@@ -25,42 +25,44 @@ const inputStyles = defineStyle({
     borderColor: 'pink.400',
   },
   autoFocus: true,
-}) as InputProps;
+}) as InputProps
 
 type Props = {
-  inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  setCityData: React.Dispatch<React.SetStateAction<CityData>>;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsError: React.Dispatch<React.SetStateAction<boolean>>;
-};
+  inputValue: string
+  setInputValue: React.Dispatch<React.SetStateAction<string>>
+  setCityData: React.Dispatch<React.SetStateAction<CityData>>
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setError: React.Dispatch<React.SetStateAction<ErrorStatus>>
+}
 
 export const SearchInput = ({
   setInputValue,
   inputValue,
   setCityData,
   setIsLoading,
-  setIsError,
+  setError,
 }: Props) => {
   const handleGetCityData = async () => {
-    setIsError(false);
-    setIsLoading(true);
+    setError('')
+    setIsLoading(true)
 
-    const data = await getCityData(inputValue);
-    if (data !== 'error') {
-      setCityData(data);
-      setIsError(false);
-    } else setIsError(true);
+    const data = await getCityData(inputValue)
+    if (typeof data === 'object') {
+      setCityData(data)
+      setError('')
+    } else setError(data)
 
-    setIsLoading(false);
-    setInputValue('');
-  };
+    setIsLoading(false)
+    setInputValue('')
+  }
 
   return (
     <InputGroup>
       <InputLeftElement
         cursor={'pointer'}
-        onClick={handleGetCityData}
+        onClick={() => {
+          void handleGetCityData()
+        }}
         h={'100%'}
       >
         <SearchIcon boxSize={{ base: '14px', sm: '16px' }} />
@@ -69,8 +71,8 @@ export const SearchInput = ({
         {...inputStyles}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={async (e) => {
-          if (e.key === 'Enter') handleGetCityData();
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') void handleGetCityData()
         }}
       />
       <InputRightElement
@@ -81,5 +83,5 @@ export const SearchInput = ({
         <CloseIcon boxSize={{ base: '12px', sm: '14px' }} />
       </InputRightElement>
     </InputGroup>
-  );
-};
+  )
+}

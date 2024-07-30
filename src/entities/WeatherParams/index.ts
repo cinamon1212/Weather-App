@@ -1,1 +1,1 @@
-export { WeatherParams } from './ui';
+export { WeatherParams } from './ui'

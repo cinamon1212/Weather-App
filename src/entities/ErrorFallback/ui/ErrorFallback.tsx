@@ -1,15 +1,21 @@
-import { ITheme } from '@/shared';
-import { defineStyle, Image, Text, VStack } from '@chakra-ui/react';
-import { useTheme } from '@emotion/react';
+import { ErrorStatus, ThemeType } from '@/shared'
+import { defineStyle, Image, Text, VStack } from '@chakra-ui/react'
+import { useTheme } from '@emotion/react'
 
 const containerStyles = defineStyle({
   alignItems: 'center',
   mt: { base: '30px', sm: '50px' },
   overflow: 'hidden',
-});
+})
 
-export const LocationNotFoundFallback = () => {
-  const { animations } = useTheme() as ITheme;
+type Props = {
+  error: ErrorStatus
+}
+
+export const ErrorFallback = ({ error }: Props) => {
+  const { animations } = useTheme() as ThemeType
+  const errorMessage =
+    error === '404' ? 'Location not found!' : 'Something went wrong!'
 
   return (
     <VStack {...containerStyles}>
@@ -24,8 +30,8 @@ export const LocationNotFoundFallback = () => {
         fontSize={{ base: '16px', sm: '20px' }}
         mt={'10px'}
       >
-        Oops! Location not found!
+        Oops! {errorMessage}
       </Text>
     </VStack>
-  );
-};
+  )
+}

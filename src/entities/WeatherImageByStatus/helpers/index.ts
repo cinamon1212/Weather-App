@@ -1,1 +1,1 @@
-export { getWeatherPathFromStatus } from './getWeatherPathFromStatus';
+export { getWeatherPathFromStatus } from './getWeatherPathFromStatus'

@@ -5,19 +5,19 @@ import {
   Image,
   Text,
   VStack,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
 
 type Props = {
-  iconName: string;
-  value: string;
-  label: string;
-} & BoxProps;
+  iconName: string
+  value: string
+  label: string
+} & BoxProps
 
 const containerStyles = defineStyle({
   alignItems: 'center',
   gap: { base: '15px', sm: '8px' },
   w: { base: '100%', sm: '50%' },
-});
+})
 
 export const WeatherParam = ({ iconName, label, value, ...props }: Props) => {
   return (
@@ -39,5 +39,5 @@ export const WeatherParam = ({ iconName, label, value, ...props }: Props) => {
         <Text fontSize={{ base: '12px', sm: '14px' }}>{label}</Text>
       </VStack>
     </HStack>
-  );
-};
+  )
+}

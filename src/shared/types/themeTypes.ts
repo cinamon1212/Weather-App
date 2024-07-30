@@ -1,18 +1,14 @@
-import { Colors, StyleProps, ThemeConfig } from '@chakra-ui/react';
+import { Colors, StyleProps, ThemeConfig } from '@chakra-ui/react'
 
-export type AnimationsType = {
-  [key: string]: string;
-};
+export type AnimationsType = Record<string, string>
 
-export interface ITheme {
-  config: ThemeConfig;
-  animations: AnimationsType;
-  colors: Colors;
-  styles: StylesType;
+export type ThemeType = {
+  config: ThemeConfig
+  animations: AnimationsType
+  colors: Colors
+  styles: StylesType
 }
 
 export type StylesType = {
-  global: {
-    [key: string]: StyleProps;
-  };
-};
+  global: Record<string, StyleProps>
+}

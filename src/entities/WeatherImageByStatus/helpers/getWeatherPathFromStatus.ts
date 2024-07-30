@@ -1,38 +1,38 @@
-import { WeatherStatus } from '@/shared';
+import { WeatherStatus } from '@/shared'
 
 export const getWeatherPathFromStatus = (status: WeatherStatus) => {
-  let imgSrc = '/images/';
+  let imgSrc = '/images/'
 
   switch (status) {
     case 'Clear':
-      imgSrc += 'sunny';
-      break;
+      imgSrc += 'sunny'
+      break
 
     case 'Rain':
-      imgSrc += 'rainy';
-      break;
+      imgSrc += 'rainy'
+      break
 
     case 'Snow':
-      imgSrc += 'moonlit';
-      break;
+      imgSrc += 'moonlit'
+      break
 
     case 'Clouds':
-      imgSrc += 'cloudy';
-      break;
+      imgSrc += 'cloudy'
+      break
 
     case 'Mist':
-      imgSrc += 'windy';
-      break;
+      imgSrc += 'windy'
+      break
 
     case 'Haze':
-      imgSrc += 'windy';
-      break;
+      imgSrc += 'windy'
+      break
 
     default:
-      imgSrc = 'cloudy';
+      imgSrc = 'cloudy'
   }
 
-  imgSrc += '.png';
+  imgSrc += '.png'
 
-  return imgSrc;
-};
+  return imgSrc
+}

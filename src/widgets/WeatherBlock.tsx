@@ -1,13 +1,13 @@
-import { BoxProps, defineStyle, VStack } from '@chakra-ui/react';
-import { useState } from 'react';
-import { CityData, Spinner } from '@/shared';
+import { BoxProps, defineStyle, VStack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { CityData, ErrorStatus, Spinner } from '@/shared'
 import {
-  LocationNotFoundFallback,
+  ErrorFallback,
   TemperatureInfo,
   WeatherImageByStatus,
   WeatherParams,
-} from '@/entities';
-import { SearchInput } from '@/features';
+} from '@/entities'
+import { SearchInput } from '@/features'
 
 const containerStyles = defineStyle({
   w: '30%',
@@ -20,19 +20,19 @@ const containerStyles = defineStyle({
   backgroundColor: 'weatherBlockBgColor',
   backdropFilter: 'blur(30px)',
   as: 'section',
-}) as BoxProps;
+}) as BoxProps
 
 export const Weather = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [inputValue, setInputValue] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<ErrorStatus>('')
   const [cityData, setCityData] = useState<CityData>({
     humidity: 0,
     name: 'Broken Clouds',
     status: 'Clouds',
     temp: 0,
     wind: 0,
-  });
+  })
 
   return (
     <VStack {...containerStyles}>
@@ -41,10 +41,10 @@ export const Weather = () => {
         setInputValue={setInputValue}
         setCityData={setCityData}
         setIsLoading={setIsLoading}
-        setIsError={setIsError}
+        setError={setError}
       />
-      {isError ? (
-        <LocationNotFoundFallback />
+      {error ? (
+        <ErrorFallback error={error} />
       ) : isLoading ? (
         <Spinner />
       ) : (
@@ -58,5 +58,5 @@ export const Weather = () => {
         </VStack>
       )}
     </VStack>
-  );
-};
+  )
+}

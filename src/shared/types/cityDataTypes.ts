@@ -1,18 +1,18 @@
 export type CityResponse = {
-  weather: { main: WeatherStatus }[];
-  main: { humidity: number; temp: number };
-  wind: { speed: number };
-  name: string;
-  cod: number | string;
-};
+  weather: { main: WeatherStatus }[]
+  main: { humidity: number; temp: number }
+  wind: { speed: number }
+  name: string
+  cod: number | string
+}
 
 export type CityData = {
-  status: WeatherStatus;
-  humidity: number;
-  wind: number;
-  temp: number;
-  name: string;
-};
+  status: WeatherStatus
+  humidity: number
+  wind: number
+  temp: number
+  name: string
+}
 
 export type WeatherStatus =
   | 'Clear'
@@ -20,4 +20,6 @@ export type WeatherStatus =
   | 'Snow'
   | 'Clouds'
   | 'Mist'
-  | 'Haze';
+  | 'Haze'
+
+export type ErrorStatus = '404' | 'error' | ''

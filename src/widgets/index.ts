@@ -1,1 +1,1 @@
-export { Weather } from './WeatherBlock';
+export { Weather } from './WeatherBlock'

@@ -1,1 +1,1 @@
-export { WeatherParams } from './WeatherParams';
+export { WeatherParams } from './WeatherParams'

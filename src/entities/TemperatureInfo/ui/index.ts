@@ -1,1 +1,1 @@
-export { TemperatureInfo } from './TemperatureInfo';
+export { TemperatureInfo } from './TemperatureInfo'

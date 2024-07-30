@@ -1,16 +1,16 @@
-import { BoxProps, defineStyle, HStack, Text, VStack } from '@chakra-ui/react';
+import { BoxProps, defineStyle, HStack, Text, VStack } from '@chakra-ui/react'
 
 type Props = {
-  temperature: number;
-  cityName: string;
-};
+  temperature: number
+  cityName: string
+}
 
 const tempHStyles = defineStyle({
   gap: '3px',
   fontSize: { base: '34px', sm: '44px' },
   h: '53px',
   fontWeight: 600,
-}) as BoxProps;
+}) as BoxProps
 
 export const TemperatureInfo = ({ temperature, cityName }: Props) => {
   return (
@@ -25,5 +25,5 @@ export const TemperatureInfo = ({ temperature, cityName }: Props) => {
         {cityName}
       </Text>
     </VStack>
-  );
-};
+  )
+}
