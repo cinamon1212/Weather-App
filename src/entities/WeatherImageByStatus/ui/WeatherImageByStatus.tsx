@@ -9,7 +9,6 @@ type Props = {
 
 const imgStyles = defineStyle({
   w: '60%',
-  mt: { base: '24px', sm: '40px' },
 })
 
 export const WeatherImageByStatus = ({ status }: Props) => {

@@ -43,20 +43,22 @@ export const Weather = () => {
         setIsLoading={setIsLoading}
         setError={setError}
       />
-      {error ? (
-        <ErrorFallback error={error} />
-      ) : isLoading ? (
-        <Spinner />
-      ) : (
-        <VStack overflow={'hidden'}>
-          <WeatherImageByStatus status={cityData.status} />
-          <TemperatureInfo
-            temperature={cityData.temp}
-            cityName={cityData.name}
-          />
-          <WeatherParams humidity={cityData.humidity} wind={cityData.wind} />
-        </VStack>
-      )}
+      <VStack overflow={'hidden'} pt={{ base: '30px', sm: '50px' }}>
+        {error ? (
+          <ErrorFallback error={error} />
+        ) : isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <WeatherImageByStatus status={cityData.status} />
+            <TemperatureInfo
+              temperature={cityData.temp}
+              cityName={cityData.name}
+            />
+            <WeatherParams humidity={cityData.humidity} wind={cityData.wind} />
+          </>
+        )}
+      </VStack>
     </VStack>
   )
 }

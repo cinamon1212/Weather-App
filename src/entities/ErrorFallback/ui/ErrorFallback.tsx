@@ -4,8 +4,6 @@ import { useTheme } from '@emotion/react'
 
 const containerStyles = defineStyle({
   alignItems: 'center',
-  mt: { base: '30px', sm: '50px' },
-  overflow: 'hidden',
 })
 
 type Props = {
