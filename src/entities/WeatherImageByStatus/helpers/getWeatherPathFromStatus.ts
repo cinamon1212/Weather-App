@@ -29,7 +29,7 @@ export const getWeatherPathFromStatus = (status: WeatherStatus) => {
       break
 
     default:
-      imgSrc = 'cloudy'
+      imgSrc += 'cloudy'
   }
 
   imgSrc += '.png'
