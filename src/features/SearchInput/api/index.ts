@@ -1,0 +1,1 @@
+export { getCityData } from './getCityData'

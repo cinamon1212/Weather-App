@@ -1,13 +1,7 @@
-import { CityData, ErrorStatus, getCityData } from '@/shared'
+import { CityData, ErrorStatus } from '@/shared'
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
-import {
-  defineStyle,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputProps,
-  InputRightElement,
-} from '@chakra-ui/react'
+import { defineStyle, Input, InputGroup, InputLeftElement, InputProps, InputRightElement } from '@chakra-ui/react'
+import { getCityData } from '../api'
 
 const inputStyles = defineStyle({
   borderWidth: '1.5px',
@@ -19,7 +13,7 @@ const inputStyles = defineStyle({
   h: { base: '38px', sm: '48px' },
   fontSize: { base: '15px', sm: '18px' },
   _placeholder: {
-    color: 'whiteAlpha.600',
+    color: 'whiteAlpha.700',
   },
   _focusVisible: {
     borderColor: 'pink.400',
@@ -35,13 +29,7 @@ type Props = {
   setError: React.Dispatch<React.SetStateAction<ErrorStatus>>
 }
 
-export const SearchInput = ({
-  setInputValue,
-  inputValue,
-  setCityData,
-  setIsLoading,
-  setError,
-}: Props) => {
+export const SearchInput = ({ setInputValue, inputValue, setCityData, setIsLoading, setError }: Props) => {
   const handleGetCityData = async () => {
     setError('')
     setIsLoading(true)
@@ -74,10 +62,7 @@ export const SearchInput = ({
           if (e.key === 'Enter') void handleGetCityData()
         }}
       />
-      <InputRightElement
-        onClick={() => setInputValue('')}
-        cursor={'pointer'}
-        h={'100%'}>
+      <InputRightElement onClick={() => setInputValue('')} cursor={'pointer'} h={'100%'}>
         <CloseIcon boxSize={{ base: '12px', sm: '14px' }} />
       </InputRightElement>
     </InputGroup>

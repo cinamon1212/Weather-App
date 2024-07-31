@@ -14,12 +14,6 @@ export type CityData = {
   name: string
 }
 
-export type WeatherStatus =
-  | 'Clear'
-  | 'Rain'
-  | 'Snow'
-  | 'Clouds'
-  | 'Mist'
-  | 'Haze'
+export type WeatherStatus = 'Clear' | 'Rain' | 'Snow' | 'Clouds' | 'Mist' | 'Haze'
 
 export type ErrorStatus = '404' | 'error' | ''

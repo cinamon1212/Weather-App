@@ -15,12 +15,5 @@ export const WeatherImageByStatus = ({ status }: Props) => {
   const imgSrc = getWeatherPathFromStatus(status)
   const { animations } = useTheme() as ThemeType
 
-  return (
-    <Image
-      {...imgStyles}
-      src={imgSrc}
-      alt='weather'
-      animation={animations.imgAnimation}
-    />
-  )
+  return <Image {...imgStyles} src={imgSrc} alt='weather' animation={animations.imgAnimation} />
 }

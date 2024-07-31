@@ -1,9 +1,6 @@
-import { CityData, CityResponse, ErrorStatus } from '../types'
-import { API_KEY, BASE_URL } from './apiConstants'
+import { API_KEY, BASE_URL, CityData, CityResponse, ErrorStatus } from '@/shared'
 
-export const getCityData = async (
-  city: string,
-): Promise<ErrorStatus | CityData> => {
+export const getCityData = async (city: string): Promise<ErrorStatus | CityData> => {
   try {
     const response = await fetch(BASE_URL + `&q=${city}&appid=${API_KEY}`)
     const data = (await response.json()) as CityResponse

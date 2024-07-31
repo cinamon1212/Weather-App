@@ -1,6 +1,7 @@
+import { animations } from '@/app/theme'
 import { Colors, StyleProps, ThemeConfig } from '@chakra-ui/react'
 
-export type AnimationsType = Record<string, string>
+export type AnimationsType = typeof animations
 
 export type ThemeType = {
   config: ThemeConfig
