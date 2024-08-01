@@ -2,6 +2,7 @@ import { CityData, ErrorStatus } from '@/shared'
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 import { defineStyle, Input, InputGroup, InputLeftElement, InputProps, InputRightElement } from '@chakra-ui/react'
 import { getCityData } from '../api'
+import { memo } from 'react'
 
 const inputStyles = defineStyle({
   borderWidth: '1.5px',
@@ -29,7 +30,7 @@ type Props = {
   setError: React.Dispatch<React.SetStateAction<ErrorStatus>>
 }
 
-export const SearchInput = ({ setInputValue, inputValue, setCityData, setIsLoading, setError }: Props) => {
+export const SearchInput = memo(({ setInputValue, inputValue, setCityData, setIsLoading, setError }: Props) => {
   const handleGetCityData = async () => {
     setError('')
     setIsLoading(true)
@@ -67,4 +68,4 @@ export const SearchInput = ({ setInputValue, inputValue, setCityData, setIsLoadi
       </InputRightElement>
     </InputGroup>
   )
-}
+})

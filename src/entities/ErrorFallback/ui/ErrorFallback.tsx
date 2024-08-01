@@ -1,6 +1,7 @@
 import { ErrorStatus, ThemeType } from '@/shared'
 import { BoxProps, defineStyle, Image, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react'
+import { memo } from 'react'
 
 const containerStyles = defineStyle({
   alignItems: 'center',
@@ -11,7 +12,7 @@ type Props = {
   error: ErrorStatus
 }
 
-export const ErrorFallback = ({ error }: Props) => {
+export const ErrorFallback = memo(({ error }: Props) => {
   const { animations } = useTheme() as ThemeType
   const errorMessage = error === '404' ? 'Location not found!' : 'Something went wrong!'
 
@@ -23,4 +24,4 @@ export const ErrorFallback = ({ error }: Props) => {
       </Text>
     </VStack>
   )
-}
+})

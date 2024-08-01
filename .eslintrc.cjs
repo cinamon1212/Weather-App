@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    ignoreTranspilerName: true,
   },
   parserOptions: {
     ecmaVersion: 'latest',

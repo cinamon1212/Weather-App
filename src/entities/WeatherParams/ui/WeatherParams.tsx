@@ -1,5 +1,6 @@
 import { defineStyle, Stack } from '@chakra-ui/react'
 import { WeatherParam } from './WeatherParam'
+import { memo } from 'react'
 
 const stackStyles = defineStyle({
   justifyContent: 'space-between',
@@ -16,7 +17,7 @@ type Props = {
   wind: number
 }
 
-export const WeatherParams = ({ humidity, wind }: Props) => {
+export const WeatherParams = memo(({ humidity, wind }: Props) => {
   const fields = [
     {
       iconName: 'humidity',
@@ -38,4 +39,4 @@ export const WeatherParams = ({ humidity, wind }: Props) => {
       ))}
     </Stack>
   )
-}
+})
