@@ -1,11 +1,6 @@
-import { Spinner as ChakraSpinner, defineStyle } from '@chakra-ui/react'
-import { memo } from 'react'
+import { Spinner as ChakraSpinner } from '@chakra-ui/react'
+import { spinnerStyles } from './styles'
 
-const spinnerStyles = defineStyle({
-  size: { base: 'lg', sm: 'xl' },
-  mb: '20px',
-})
-
-export const Spinner = memo(() => {
+export const Spinner = () => {
   return <ChakraSpinner {...spinnerStyles} />
-})
+}

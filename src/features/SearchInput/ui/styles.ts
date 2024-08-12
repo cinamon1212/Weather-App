@@ -23,3 +23,11 @@ export const inputStyles = defineStyle({
   },
   autoFocus: true,
 }) as InputProps
+
+export const searchIconStyles = defineStyle({
+  boxSize: { base: '14px', sm: '16px' },
+})
+
+export const closeIconStyles = defineStyle({
+  boxSize: { base: '12px', sm: '14px' },
+})
