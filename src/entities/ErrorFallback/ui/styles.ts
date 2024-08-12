@@ -11,3 +11,8 @@ export const errorMessageStyles = defineStyle({
   fontSize: { base: '16px', sm: '20px' },
   mt: '10px',
 }) as TextProps
+
+export const fallbackImageStyles = defineStyle({
+  src: '/images/404.png',
+  alt: 'fallback',
+})
