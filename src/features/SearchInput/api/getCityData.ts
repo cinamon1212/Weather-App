@@ -1,22 +1,14 @@
-import { API_KEY, BASE_URL, CityData, CityResponse, ErrorStatus } from '@/shared'
+import { CityDataWithStatus } from '@/shared'
+import { fetchCityData } from './fetchCityData'
+import { createCityData } from './createCityData'
 
-export const getCityData = async (city: string): Promise<ErrorStatus | CityData> => {
+export const getCityData = async (city: string): Promise<CityDataWithStatus> => {
   try {
-    const response = await fetch(BASE_URL + `&q=${city}&appid=${API_KEY}`)
-    const data = (await response.json()) as CityResponse
-    if (data.cod == 200) {
-      const { weather, main, wind, name } = data
-      return {
-        status: weather[0].main,
-        humidity: main.humidity,
-        wind: +wind.speed.toString().slice(0, 3),
-        temp: +main.temp.toString().slice(0, 3),
-        name,
-      }
-    } else if (data.cod == 404) return '404'
-    else return 'error'
+    const { status, data } = await fetchCityData(city)
+    if (data !== null) return { status, data: createCityData(data) }
+    else return { status, data: null }
   } catch (error) {
     console.log(error)
-    return 'error'
+    return { status: 'error', data: null }
   }
 }
