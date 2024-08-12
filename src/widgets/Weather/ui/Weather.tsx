@@ -53,7 +53,7 @@ export const Weather = () => {
 
   return (
     <VStack {...sectionStyles} h={h}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} style={{ width: '100%' }}>
         <SearchInput inputValue={inputValue} setInputValue={setInputValue} handleGetCityData={handleGetCityData} />
       </form>
       {showContentContainer && <VStack {...contentContainerStyles}>{content}</VStack>}

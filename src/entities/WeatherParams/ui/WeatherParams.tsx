@@ -1,15 +1,6 @@
-import { defineStyle, Stack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import { WeatherParam } from './WeatherParam'
-
-const stackStyles = defineStyle({
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  flexDirection: { base: 'column', sm: 'row' },
-  gap: { base: '20px', sm: 0 },
-  w: '100%',
-  mt: { base: '24px', sm: '40px' },
-  px: '10px',
-})
+import { weatherParamsStackStyles } from './styles'
 
 type Props = {
   humidity: number
@@ -33,7 +24,7 @@ export const WeatherParams = ({ humidity, wind }: Props) => {
   ]
 
   return (
-    <Stack {...stackStyles}>
+    <Stack {...weatherParamsStackStyles}>
       {fields.map((field) => (
         <WeatherParam {...field} key={field.iconName} />
       ))}
