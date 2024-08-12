@@ -1,27 +1,20 @@
-import { ErrorStatus, ThemeType } from '@/shared'
-import { BoxProps, defineStyle, Image, Text, VStack } from '@chakra-ui/react'
+import { ErrorStatuses, ThemeType } from '@/shared'
+import { Image, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react'
-import { memo } from 'react'
-
-const containerStyles = defineStyle({
-  alignItems: 'center',
-  textAlign: 'center',
-}) as BoxProps
+import { containerStyles, errorMessageStyles } from './styles'
 
 type Props = {
-  error: ErrorStatus
+  error: ErrorStatuses
 }
 
-export const ErrorFallback = memo(({ error }: Props) => {
+export const ErrorFallback = ({ error }: Props) => {
   const { animations } = useTheme() as ThemeType
   const errorMessage = error === '404' ? 'Location not found!' : 'Something went wrong!'
 
   return (
     <VStack {...containerStyles}>
-      <Image src='/images/404.png' alt='not found' animation={animations.imgAnimation} />
-      <Text as={'h2'} fontWeight={500} fontSize={{ base: '16px', sm: '20px' }} mt={'10px'}>
-        Oops! {errorMessage}
-      </Text>
+      <Image src='/images/404.png' alt='fallback' animation={animations.imgAnimation} />
+      <Text {...errorMessageStyles}>Oops! {errorMessage}</Text>
     </VStack>
   )
-})
+}

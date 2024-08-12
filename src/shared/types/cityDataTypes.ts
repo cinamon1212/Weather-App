@@ -16,7 +16,9 @@ export type CityData = {
 
 export type WeatherStatus = 'Clear' | 'Rain' | 'Snow' | 'Clouds' | 'Mist' | 'Haze'
 
-export type FetchStatuses = '404' | 'error' | '200'
+export type ErrorStatuses = '404' | 'error'
+
+export type FetchStatuses = ErrorStatuses | '200'
 
 export type CityResponseWithStatus = {
   data: CityResponse | null

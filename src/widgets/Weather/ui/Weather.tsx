@@ -1,6 +1,6 @@
 import { VStack } from '@chakra-ui/react'
 import { useState } from 'react'
-import { CityData, FetchStatuses, Spinner } from '@/shared'
+import { CityData, ErrorStatuses, Spinner } from '@/shared'
 import { ErrorFallback, TemperatureInfo, WeatherImageByStatus, WeatherParams } from '@/entities'
 import { SearchInput } from '@/features'
 import { sectionStyles, contentContainerStyles } from './styles'
@@ -10,7 +10,7 @@ import { getWeatherSectionHeight } from '../helpers/getWeatherSectionHeight'
 export const Weather = () => {
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<FetchStatuses | ''>('')
+  const [error, setError] = useState<ErrorStatuses | ''>('')
   const [cityData, setCityData] = useState<CityData | null>(null)
 
   const h = getWeatherSectionHeight(isLoading, error, cityData)
@@ -20,7 +20,7 @@ export const Weather = () => {
     setIsLoading(true)
 
     const { data, status } = await getCityData(inputValue)
-    if (data !== null) {
+    if (status === '200') {
       setCityData(data)
       setError('')
     } else setError(status)
