@@ -1,6 +1,10 @@
 import { ErrorStatuses, useAppTheme } from '@/shared'
 import { Image, Text, VStack } from '@chakra-ui/react'
-import { containerStyles, errorMessageStyles, fallbackImageStyles } from './styles'
+import {
+  containerStyles,
+  errorMessageStyles,
+  fallbackImageStyles,
+} from './styles'
 
 type Props = {
   error: ErrorStatuses
@@ -8,7 +12,8 @@ type Props = {
 
 export const ErrorFallback = ({ error }: Props) => {
   const { animations } = useAppTheme()
-  const errorMessage = error === '404' ? 'Location not found!' : 'Something went wrong!'
+  const errorMessage =
+    error === '404' ? 'Location not found!' : 'Something went wrong!'
 
   return (
     <VStack {...containerStyles}>

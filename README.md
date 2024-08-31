@@ -13,4 +13,3 @@ yarn run dev
 ## Link to deployed app
 
 https://weather-app-cinamon.vercel.app/
-

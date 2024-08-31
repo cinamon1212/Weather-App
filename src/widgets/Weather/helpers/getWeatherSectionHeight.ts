@@ -1,7 +1,11 @@
 import { CityData } from '@/shared'
 import { sectionHeights } from '../ui/styles'
 
-export const getWeatherSectionHeight = (isLoading: boolean, error: string, cityData: CityData | null) => {
+export const getWeatherSectionHeight = (
+  isLoading: boolean,
+  error: string,
+  cityData: CityData | null,
+) => {
   const { baseH, dataH, fallbackH, loadingH } = sectionHeights
 
   let h: { base: string; sm: string } = baseH

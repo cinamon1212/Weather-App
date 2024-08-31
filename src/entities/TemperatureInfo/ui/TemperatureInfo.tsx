@@ -1,5 +1,10 @@
 import { HStack, Text, VStack } from '@chakra-ui/react'
-import { cityNameStyles, degreeStyles, infoBlockStyles, tempBlockStyles } from './styles'
+import {
+  cityNameStyles,
+  degreeStyles,
+  infoBlockStyles,
+  tempBlockStyles,
+} from './styles'
 
 type Props = {
   temperature: number

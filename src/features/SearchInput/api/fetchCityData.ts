@@ -1,6 +1,13 @@
-import { BASE_URL, API_KEY, CityResponse, CityResponseWithStatus } from '@/shared'
+import {
+  BASE_URL,
+  API_KEY,
+  CityResponse,
+  CityResponseWithStatus,
+} from '@/shared'
 
-export const fetchCityData = async (city: string): Promise<CityResponseWithStatus> => {
+export const fetchCityData = async (
+  city: string,
+): Promise<CityResponseWithStatus> => {
   try {
     const response = await fetch(BASE_URL + `&q=${city}&appid=${API_KEY}`)
     const data = (await response.json()) as CityResponse
