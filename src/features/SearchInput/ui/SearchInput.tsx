@@ -9,19 +9,11 @@ type Props = {
   handleGetCityData: () => Promise<void>
 }
 
-export const SearchInput = ({
-  setInputValue,
-  inputValue,
-  handleGetCityData,
-}: Props) => {
+export const SearchInput = ({ setInputValue, inputValue, handleGetCityData }: Props) => {
   return (
     <InputGroup>
       <InputLeftElem handleGetCityData={handleGetCityData} />
-      <Input
-        {...inputStyles}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
+      <Input {...inputStyles} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
       <InputRightElem setInputValue={setInputValue} />
     </InputGroup>
   )

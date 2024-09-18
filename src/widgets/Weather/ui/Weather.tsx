@@ -1,12 +1,7 @@
 import { VStack } from '@chakra-ui/react'
 import { useState } from 'react'
 import { CityData, ErrorStatuses, Spinner } from '@/shared'
-import {
-  ErrorFallback,
-  TemperatureInfo,
-  WeatherImageByStatus,
-  WeatherParams,
-} from '@/entities'
+import { ErrorFallback, TemperatureInfo, WeatherImageByStatus, WeatherParams } from '@/entities'
 import { SearchInput } from '@/features'
 import { sectionStyles, contentContainerStyles } from './styles'
 import { getCityData } from '@/features/SearchInput/api'
@@ -59,15 +54,9 @@ export const Weather = () => {
   return (
     <VStack {...sectionStyles} h={h}>
       <form onSubmit={onSubmit} style={{ width: '100%' }}>
-        <SearchInput
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          handleGetCityData={handleGetCityData}
-        />
+        <SearchInput inputValue={inputValue} setInputValue={setInputValue} handleGetCityData={handleGetCityData} />
       </form>
-      {showContentContainer && (
-        <VStack {...contentContainerStyles}>{content}</VStack>
-      )}
+      {showContentContainer && <VStack {...contentContainerStyles}>{content}</VStack>}
     </VStack>
   )
 }

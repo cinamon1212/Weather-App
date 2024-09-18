@@ -12,7 +12,8 @@ export const InputLeftElem = ({ handleGetCityData }: Props) => {
       onClick={() => {
         void handleGetCityData()
       }}
-      {...addonStyles}>
+      {...addonStyles}
+    >
       <SearchIcon {...searchIconStyles} />
     </InputLeftElement>
   )
